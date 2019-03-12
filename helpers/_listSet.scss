@@ -1,0 +1,15 @@
+//dropdown list setting
+.dropdown-item{
+  height: 34px;
+  // width: 150px;
+  font-weight: bold;
+}
+.dropdown-item:hover{
+  background-color:black;
+  color:white;
+}
+//button array setting
+.dropdown-toggle::after{
+  color: black;
+  vertical-align: 0.2em;
+}

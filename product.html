@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  <title>F2E ADMIN BS4</title>
+  <!--網站貼在Facebook上時顯示的資訊-->
+  <meta
+    property="og:title"
+    content="TheF2E Week3: Admin"
+  >
+  <meta
+    property="og:description"
+    content="Ming Yang's F2E 3th homework"
+  >
+  <meta
+    property="og:type"
+    content="website"
+  >
+  <meta
+    property="og:url"
+    content=""
+  >
+  <meta
+    property="og:image"
+    content="images/F2E.jpg"
+  >
+  <!-- css -->
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+    type="text/css"
+  >
+  <!-- fontawesome -->
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous"
+  >
+  <!-- google fontfamily -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+    rel="stylesheet"
+  >
+
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black mb-30 ">
+    <div class="container">
+      <a class="navbar-brand font-weight-bold text-white py-0">Shoptime</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item mr-lg-40">
+            <a
+              class="nav-link font-weight-bold  text-center text-muted px-0"
+              href="index.html"
+            >HOME</a>
+          </li>
+          <li class="nav-item mr-lg-40">
+            <a
+              class="nav-link font-weight-bold  text-center px-0"
+              href="order.html"
+            >ORDERS</a>
+          </li>
+          <li class="nav-item active">
+            <a
+              class="nav-link font-weight-bold text-center nav-link-border px-0"
+              href="product.html"
+              tabindex="-1"
+              aria-disabled="true"
+            >PRODUCT<span class="sr-only">(current)</span></a>
+          </li>
+
+        </ul>
+        <ul class="ml-auto navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link font-weight-bold text-light"
+              href="index.html"
+              tabindex="-1"
+              aria-disabled="true"
+            >ADMIN</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="container orderHeader mb-3">
+    <div class="row">
+      <div class="custom-control custom-checkbox ml-3 mr-auto d-flex">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id="selectAll"
+        >
+        <label
+          class="custom-control-label"
+          for="selectAll"
+        ></label>
+        <div class="dropdown">
+          <button
+            class="btn font-weight-bold pt-0"
+            type="button"
+            id="editSection"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <!-- <i class="fas fa-tags"></i> -->
+            <i class="fas fa-sort-down mt-0"></i>
+          </button>
+          <div
+            class="dropdown-menu py-0"
+            aria-labelledby="dropdownMenuButton"
+          >
+            <a
+              class="dropdown-item text-center chooseBox"
+              href="#"
+            >Select All</a>
+            <a
+              class="dropdown-item text-center
+              chooseBox"
+              href="#"
+            >Unselect All</a>
+            <a
+              class="dropdown-item text-center
+              chooseBox"
+              href="#"
+            >PUBLISHED</a>
+            <a
+              class="dropdown-item text-center
+              chooseBox"
+              href="#"
+            >UNPUBLISHED</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button
+            class="btn font-weight-bold pt-0"
+            type="button"
+            id="editSection"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Change Status"
+          >
+            <i class="fas fa-tags mt-1"></i>
+          </button>
+          <div
+            class="dropdown-menu py-0 "
+            aria-labelledby="dropdownMenuButton"
+            id="tagDropDownMenu"
+          >
+            <h6 class="dropdown-header font-weight-bold">Change Status to...</h6>
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item text-center changeStatusButton"
+              href="#"
+            >PUBLISHED</a>
+            <a
+              class="dropdown-item text-center changeStatusButton"
+              href="#"
+            >UNPUBLISHED</a>
+          </div>
+        </div>
+      </div>
+
+      <button
+        class="btn font-weight-bold py-2 px-3 btn-dark mr-3"
+        type="button"
+        id="addNewProduct"
+        data-toggle="modal"
+        data-target="#Modal"
+      >
+        ADD NEW PRODUCT +
+      </button>
+
+    </div>
+  </section>
+  <!-- table -->
+  <section class="container">
+    <div class="table-responsive">
+      <table class="table product">
+        <thead class="bg-light">
+          <tr>
+            <th class="pl-40">Product</th>
+            <th>Original</th>
+            <th>Discount</th>
+            <th>Size</th>
+            <th>Color</th>
+            <th>Inventory</th>
+            <th width="200">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="product01">
+            <td class="tdFirst">
+              <div class="custom-control custom-checkbox d-flex align-items-center pl-2">
+                <input
+                  type="checkbox"
+                  id="product01"
+                >
+                <img
+                  src="images/100.jpg"
+                  alt="50*50"
+                  class="mx-2"
+                >
+                <label
+                  class="mb-0"
+                  for="product01"
+                >Mauris non tem.</label>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center justify-content-end">
+                <p class="mb-0">$3,200</p>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center justify-content-end">
+                <p class="mb-0">$2,800</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex align-items-center justify-content-start">
+                <p class="mb-0">L</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column mt-3">
+                <p class="mb-0">Gray</p>
+                <p class="mb-0">Black</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column align-items-end mt-3">
+                <p class="mb-0">15</p>
+                <p class="mb-0">20</p>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <tr class="product01">
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-bottom border-light">
+              <div class="d-flex align-items-center justify-content-start">
+                <p class="mb-0">M</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column mt-3">
+                <p class="mb-0">Gray</p>
+                <p class="mb-0">Black</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column align-items-end mt-3">
+                <p class="mb-0">15</p>
+                <p class="mb-0">20</p>
+              </div>
+            </td>
+            <td class="border-top-0"> </td>
+          </tr>
+          <tr class="product01">
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-bottom">
+              <div class="d-flex align-items-center justify-content-start">
+                <p class="mb-0">S</p>
+              </div>
+            </td>
+            <td class="border-bottom">
+              <div class="d-flex flex-column mt-3">
+                <p class="mb-0">Gray</p>
+                <p class="mb-0">Black</p>
+              </div>
+            </td>
+            <td class="border-bottom">
+              <div class="d-flex flex-column align-items-end mt-3">
+                <p class="mb-0">15</p>
+                <p class="mb-0">20</p>
+              </div>
+            </td>
+            <td class="border-top-0  row justify-content-center">
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn btn-secondary dropdown-toggle py-0 px-3"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >UNPUBLISHED</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >PUBLISHED</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >UNPUBLISHED</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- product 2 -->
+          <tr class="product02">
+            <td>
+              <div class="custom-control custom-checkbox d-flex align-items-center  pl-2">
+                <input
+                  type="checkbox"
+                  id="product02"
+                >
+                <img
+                  src="images/100.jpg"
+                  alt="50*50"
+                  class="mx-2"
+                >
+                <label
+                  class="mb-0"
+                  for="product02"
+                >Curabitur lobo.</label>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center justify-content-end">
+                <p class="mb-0">$3,200</p>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center justify-content-end">
+                <p class="mb-0">$2,800</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex align-items-center justify-content-start">
+                <p class="mb-0">L</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column mt-3">
+                <p class="mb-0">Gray</p>
+                <p class="mb-0">Black</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column align-items-end mt-3">
+                <p class="mb-0">15</p>
+                <p class="mb-0">20</p>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <tr class="product02">
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-bottom border-light ">
+              <div class="d-flex align-items-center justify-content-start">
+                <p class="mb-0">M</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column mt-3">
+                <p class="mb-0">Gray</p>
+                <p class="mb-0">Black</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column align-items-end mt-3">
+                <p class="mb-0">15</p>
+                <p class="mb-0">20</p>
+              </div>
+            </td>
+            <td class="border-top-0"> </td>
+          </tr>
+          <tr class="product02">
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-bottom">
+              <div class="d-flex align-items-center justify-content-start">
+                <p class="mb-0">S</p>
+              </div>
+            </td>
+            <td class="border-bottom">
+              <div class="d-flex flex-column mt-3">
+                <p class="mb-0">Gray</p>
+                <p class="mb-0">Black</p>
+              </div>
+            </td>
+            <td class="border-bottom">
+              <div class="d-flex flex-column align-items-end mt-3">
+                <p class="mb-0">15</p>
+                <p class="mb-0">20</p>
+              </div>
+            </td>
+            <td class="border-top-0 row justify-content-center">
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn btn-secondary dropdown-toggle py-2 px-3"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >PUBLISHED</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >PUBLISHED</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >UNPUBLISHED</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <!-- product 3 -->
+          <tr class="product03">
+            <td>
+              <div class="custom-control custom-checkbox d-flex align-items-center  pl-2">
+                <input
+                  type="checkbox"
+                  id="product03"
+                >
+                <img
+                  src="images/100.jpg"
+                  alt="50*50"
+                  class="mx-2"
+                >
+                <label
+                  class="mb-0"
+                  for="product03"
+                >Curabitur lobo.</label>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center justify-content-end">
+                <p class="mb-0">$3,200</p>
+              </div>
+            </td>
+            <td>
+              <div class="d-flex align-items-center justify-content-end">
+                <p class="mb-0">$2,800</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex align-items-center justify-content-start">
+                <p class="mb-0">L</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column mt-3">
+                <p class="mb-0">Gray</p>
+                <p class="mb-0">Black</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column align-items-end mt-3">
+                <p class="mb-0">15</p>
+                <p class="mb-0">20</p>
+              </div>
+            </td>
+            <td></td>
+          </tr>
+          <tr class="product03">
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-bottom border-light ">
+              <div class="d-flex align-items-center justify-content-start">
+                <p class="mb-0">M</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column mt-3">
+                <p class="mb-0">Gray</p>
+                <p class="mb-0">Black</p>
+              </div>
+            </td>
+            <td class="border-bottom border-light">
+              <div class="d-flex flex-column align-items-end mt-3">
+                <p class="mb-0">15</p>
+                <p class="mb-0">20</p>
+              </div>
+            </td>
+            <td class="border-top-0"> </td>
+          </tr>
+          <tr class="product03">
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class="border-top-0"></td>
+            <td class=" ">
+              <div class="d-flex align-items-center justify-content-start">
+                <p class="mb-0">S</p>
+              </div>
+            </td>
+            <td class="">
+              <div class="d-flex flex-column mt-3">
+                <p class="mb-0">Gray</p>
+                <p class="mb-0">Black</p>
+              </div>
+            </td>
+            <td class="">
+              <div class="d-flex flex-column align-items-end mt-3">
+                <p class="mb-0">15</p>
+                <p class="mb-0">20</p>
+              </div>
+            </td>
+            <td class="border-top-0  row justify-content-center">
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn btn-secondary dropdown-toggle py-2 px-3"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >PUBLISHED</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >PUBLISHED</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >UNPUBLISHED</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+
+  <!-- Modal -->
+  <div
+    class="modal fade "
+    id="Modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div
+      class="modal-dialog modal-xl"
+      role="document"
+    >
+      <div class="modal-content">
+        <div class="modal-header bg-black pl-30">
+          <h5
+            class="modal-title  text-white"
+            id="exampleModalLabel"
+          >ADD NEW PRODUCT</h5>
+          <button
+            type="button"
+            class="close"
+            data-dismiss="modal"
+            aria-label="Close"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body py-30 px-30">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 px-0">
+                <div class="uploadBlock d-flex flex-column align-items-center mb-2">
+                  <label
+                    for="upload"
+                    class=" mt-4"
+                  >
+                    <i class="fas fa-cloud-upload-alt"></i>
+                  </label>
+                  <input
+                    type="file"
+                    id="upload"
+                  >
+                  <p class="mb-4">Drag an image or click here to upload…</p>
+                </div>
+                <div class="d-flex flex-wrap imgBlock">
+                  <img
+                    src="images/100.jpg"
+                    alt="100"
+                    class="mr-md-7 mb-2"
+                  >
+                  <img
+                    src="images/100.jpg"
+                    alt="100"
+                    class="mr-md-7 mb-2"
+                  >
+                  <img
+                    src="images/100.jpg"
+                    alt="100"
+                    class="mb-2"
+                  >
+                  <img
+                    src="images/100.jpg"
+                    alt="100"
+                    class="mr-md-7 mb-2"
+                  >
+                  <img
+                    src="images/100.jpg"
+                    alt="100"
+                    class="mr-md-7 mb-2"
+                  >
+                </div>
+
+              </div>
+              <div class="col-lg-6 px-0 pl-lg-30">
+                <p class="font-weight-bold mb-2 productDiscription">Product Discription</p>
+                <form>
+                  <div class="form-group">
+                    <input
+                      type="text"
+                      class="form-control mb-2"
+                      placeholder="Vestibulum nec"
+                    >
+                    <input
+                      type="text"
+                      class="form-control inputDescription"
+                    >
+                  </div>
+                  <p class="font-weight-bold">Price</p>
+                  <div class="row mb-20">
+                    <div class="col-12 col-sm-10">
+                      <div class="input-group flex-column flex-sm-row">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">Original</span>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control priceTextInput rounded-right text-right originalPrice"
+                        >
+                        <div class="input-group-prepend ml-sm-2">
+                          <span class="input-group-text rounded-left">Discount</span>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control priceTextInput text-right discountPrice"
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <p class="font-weight-bold">Specification</p>
+                  <div class="flex-sm-row specContentOuter">
+                    <div class="col-12 mb-2 pl-0  specContent">
+                      <div class="input-group  flex-column flex-sm-row">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text ">Size</span>
+                        </div>
+                        <select class="custom-select rounded-right size">
+
+                          <option value="S">S</option>
+                          <option value="M">M</option>
+                          <option value="L">L</option>
+                        </select>
+                        <div class="input-group-prepend ml-sm-2">
+                          <span class="input-group-text rounded-left">Color</span>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control priceTextInput rounded-right color"
+                        >
+                        <div class="input-group-prepend ml-sm-2">
+                          <span class="input-group-text rounded-left">Inventory</span>
+                        </div>
+                        <input
+                          type="text"
+                          class="form-control priceTextInput inventory"
+                        >
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row mb-30">
+                    <div class="col-12">
+                      <button class="btn btn-block btn-dark font-weight-bold addNewSpec">ADD NEW SPECIFICATION
+                        +</button>
+                    </div>
+                  </div>
+                </form>
+                <div class="row">
+                  <div class="col-12 d-flex justify-content-end">
+                    <button
+                      type="button"
+                      class="btn btn-light font-weight-bold saveDraft"
+                      data-dismiss="modal"
+                    >SAVE DRAFT</button>
+                    <button
+                      type="button"
+                      class="btn btn-dark ml-3 font-weight-bold publish"
+                      data-dismiss="modal"
+                    >PUBLISH</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+  <!-- jQuery -->
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"
+  ></script>
+  <!-- bootstrap -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"
+  ></script>
+  <!-- chart js -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script> -->
+  <!-- <script src="js/chartcontent.js"></script> -->
+  <script src="js/product.js"></script>
+</body>
+
+</html>

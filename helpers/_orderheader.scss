@@ -1,0 +1,17 @@
+.dropdown-header{
+  padding-bottom: 0;    
+}
+.fas{
+  vertical-align: top;
+}
+.editSection{
+  font-size: 14px;
+  color: #000000;
+  line-height: 18px;
+}
+// input check box backgorund color 
+.custom-control-input:checked ~ .custom-control-label::before {
+  color: #fff;
+  border-color: #000;
+  background-color: #000;
+}

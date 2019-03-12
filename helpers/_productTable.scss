@@ -1,0 +1,139 @@
+img[alt="50*50"]{
+  max-width: 50px;
+  height: 50px;
+}
+input[type="checkbox"]{
+  position: relative;
+  margin-top: -4px; //用來對齊
+}
+input[type="checkbox"]::before{
+content: "";
+position: absolute;
+background: white;
+width: 15px;
+height: 15px;
+left:0;
+top: 0; 
+border-radius: 3px;
+}
+input[type="checkbox"]::after{
+  position: absolute;
+  content:"✔";
+  width: 15px;
+  height: 15px;
+  background: white;
+  border-radius: 3px;
+  left:0;
+  top: 0; 
+  color:white;
+  vertical-align:text-top;
+  font-size: 12px;
+  padding-left: 2.5px;
+  padding-top: 1px;
+  line-height: 15px;
+}
+input[type="checkbox"]:checked::after{
+  background-color: #9B9B9B;
+}
+.table{
+  &.product{
+    td{
+      // padding-top: 0;
+      font-size: 14px;
+      line-height: 21px;
+      font-weight: bold;
+      div:first-child{
+        height: 50px;
+      }
+      .btn{
+        box-sizing: border-box;
+        font-size: 14px;
+        line-height: 18px;
+        border: 0;      
+        height: 34px;
+        font-weight: bold;
+      }
+    }
+  }  
+  tbody{
+    td{
+      min-height: 66px;
+      height: 66px;
+    }
+  }
+}
+
+// modal
+.modal-title{
+  
+    font-size: 24px;
+    font-weight: bold;
+  
+}
+.modal-content{
+  span[aria-hidden="true"]{
+    font-size: 36px;
+    color: #FFFFFF;    
+  }  
+  .close{
+    opacity: 1;
+  }
+}
+.modal-body{
+  input[id="upload"]{
+    display: none;
+  }
+  label{
+    cursor: pointer;
+    font-size: 34px;
+    height: 34px;
+    color:#757575;
+  }  
+  .uploadBlock{
+    background: #EBEBEB;
+    p{
+      color:#757575;
+      text-align: center;
+      font-weight: bold;
+      line-height: 24px;
+    }
+  }  
+  img{
+    width: 175px;
+    height: 175px;
+  }  
+  .productDiscription{
+    line-height: 19px;
+    color: #373A3C;
+  }
+  form{
+    .inputDescription{
+      height: 172px;
+    }
+  }
+  .input-group-text{
+    color: #55595c;
+    line-height: 24px;
+    font-weight: bold;    
+  }
+}
+@media (max-width: 576px){
+  .input-group > .form-control,#inputGroupSelect01{
+    width: 100%;
+    margin: 0 0 8px 0;
+  }
+  .input-group > .form-control:not(:first-child){
+    border-radius: 0.25rem;
+  }
+}
+@media (max-width: 1024px) {
+  .imgBlock{
+    justify-content: space-around;
+  }
+  .modal-body{
+    img{
+      width: 45%;
+      height: 45%;      
+    }
+  }
+}

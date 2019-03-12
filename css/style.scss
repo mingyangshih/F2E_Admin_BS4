@@ -1,0 +1,19 @@
+@import "../node_modules/bootstrap/scss/functions";
+@import "../helpers/variables";
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+body{
+  background-color: #F2F2F2;
+  font-family: 'Roboto', sans-serif;
+}
+// 1
+@import "../helpers/navbar";
+// 2
+@import "../helpers/header";
+@import "../helpers/listSet";
+@import "../helpers/chart";
+@import "../helpers/twocol";
+@import "../helpers/orderheader";
+@import "../helpers/orderTable";
+@import "../helpers/orderFooter";
+@import "../helpers/productTable";

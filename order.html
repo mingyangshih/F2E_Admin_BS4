@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+  <meta
+    http-equiv="X-UA-Compatible"
+    content="ie=edge"
+  >
+  <title>F2E ADMIN BS4</title>
+  <!--網站貼在Facebook上時顯示的資訊-->
+  <meta
+    property="og:title"
+    content="TheF2E Week3: Admin"
+  >
+  <meta
+    property="og:description"
+    content="Ming Yang's F2E 3th homework"
+  >
+  <meta
+    property="og:type"
+    content="website"
+  >
+  <meta
+    property="og:url"
+    content=""
+  >
+  <meta
+    property="og:image"
+    content="images/F2E.jpg"
+  >
+  <!-- css -->
+  <link
+    rel="stylesheet"
+    href="css/style.css"
+    type="text/css"
+  >
+  <!-- fontawesome -->
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz"
+    crossorigin="anonymous"
+  >
+  <!-- google fontfamily -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+    rel="stylesheet"
+  >
+</head>
+
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black mb-30 ">
+    <div class="container">
+      <a class="navbar-brand font-weight-bold text-white py-0">Shoptime</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div
+        class="collapse navbar-collapse"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav align-items-center">
+          <li class="nav-item mr-lg-40">
+            <a
+              class="nav-link font-weight-bold  text-center text-muted px-0"
+              href="index.html"
+            >HOME</a>
+          </li>
+          <li class="nav-item mr-lg-40  active">
+            <a
+              class="nav-link font-weight-bold  text-center nav-link-border px-0"
+              href="order.html"
+            >ORDERS <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link font-weight-bold text-muted text-center px-0"
+              href="product.html"
+              tabindex="-1"
+              aria-disabled="true"
+            >PRODUCT</a>
+          </li>
+
+        </ul>
+        <ul class="ml-auto navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link font-weight-bold text-light"
+              href="index.html"
+              tabindex="-1"
+              aria-disabled="true"
+            >ADMIN</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- header -->
+  <section class="container orderHeader mb-3">
+    <div class="row">
+      <div class="custom-control custom-checkbox ml-3 mr-auto d-flex">
+        <input
+          type="checkbox"
+          class="custom-control-input"
+          id="customCheck1"
+        >
+        <label
+          class="custom-control-label"
+          for="customCheck1"
+        ></label>
+        <div class="dropdown">
+          <button
+            class="btn font-weight-bold pt-0 editSection"
+            type="button"
+            id="editSection"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <!-- <i class="fas fa-tags"></i> -->
+            <i class="fas fa-sort-down mt-0"></i>
+          </button>
+          <div
+            class="dropdown-menu py-0"
+            aria-labelledby="dropdownMenuButton"
+          >
+            <a
+              class="dropdown-item text-center chooseBox"
+              href="#"
+            >Select All</a>
+            <a
+              class="dropdown-item text-center
+              chooseBox"
+              href="#"
+            >Unselect All</a>
+            <a
+              class="dropdown-item text-center
+              chooseBox"
+              href="#"
+            >Paid</a>
+            <a
+              class="dropdown-item text-center
+              chooseBox"
+              href="#"
+            >Unpaid</a>
+            <a
+              class="dropdown-item text-center
+              chooseBox"
+              href="#"
+            >Shipping</a>
+            <a
+              class="dropdown-item text-center
+              chooseBox"
+              href="#"
+            >Done</a>
+          </div>
+        </div>
+
+        <div class="dropdown">
+          <button
+            class="btn font-weight-bold pt-0 editSection"
+            type="button"
+            id="editSection"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            title="Change Status"
+          >
+            <i class="fas fa-tags mt-1"></i>
+          </button>
+          <div
+            class="dropdown-menu py-0 "
+            aria-labelledby="dropdownMenuButton"
+            id="tagDropDownMenu"
+          >
+            <h6 class="dropdown-header font-weight-bold">Change Status to...</h6>
+            <div class="dropdown-divider"></div>
+            <a
+              class="dropdown-item text-center changeStatusButton"
+              href="#"
+            >Paid</a>
+            <a
+              class="dropdown-item text-center changeStatusButton"
+              href="#"
+            >Unpaid</a>
+            <a
+              class="dropdown-item text-center changeStatusButton"
+              href="#"
+            >Shipping</a>
+            <a
+              class="dropdown-item text-center changeStatusButton"
+              href="#"
+            >Done</a>
+          </div>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button
+          class="btn dropdown-toggle font-weight-bold pt-0 editSection"
+          type="button"
+          id="editSection"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          EDIT SECTION
+        </button>
+        <div
+          class="dropdown-menu dropdown-menu-right py-0"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <a
+            class="dropdown-item text-left mt-3"
+            href="#"
+          >
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input tableControl"
+                id="orderID"
+              >
+              <label
+                class="custom-control-label"
+                for="orderID"
+              >Order ID</label>
+            </div>
+          </a>
+          <a
+            class="dropdown-item text-left"
+            href="#"
+          >
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input tableControl"
+                id="customer"
+                checked
+              >
+              <label
+                class="custom-control-label"
+                for="customer"
+              >Customer</label>
+            </div>
+          </a>
+          <a
+            class="dropdown-item text-left"
+            href="#"
+          >
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input tableControl"
+                id="productList"
+                checked
+              >
+              <label
+                class="custom-control-label"
+                for="productList"
+              >Product List</label>
+            </div>
+          </a>
+          <a
+            class="dropdown-item text-left"
+            href="#"
+          >
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input tableControl"
+                id="total"
+                checked
+              >
+              <label
+                class="custom-control-label"
+                for="total"
+              >Total</label>
+            </div>
+          </a>
+          <a
+            class="dropdown-item text-left"
+            href="#"
+          >
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input tableControl"
+                id="addCart"
+                checked
+              >
+              <label
+                class="custom-control-label"
+                for="addCart"
+              >Add to Cart</label>
+            </div>
+          </a>
+          <a
+            class="dropdown-item text-left"
+            href="#"
+          >
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input tableControl"
+                id="checkOut"
+                checked
+              >
+              <label
+                class="custom-control-label"
+                for="checkOut"
+              >Check-out</label>
+            </div>
+          </a>
+          <a
+            class="dropdown-item text-left"
+            href="#"
+          >
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input tableControl"
+                id="address"
+                checked
+              >
+              <label
+                class="custom-control-label"
+                for="address"
+              >Address</label>
+            </div>
+          </a>
+          <a
+            class="dropdown-item text-left"
+            href="#"
+          >
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input tableControl"
+                id="phone"
+              >
+              <label
+                class="custom-control-label"
+                for="phone"
+              >Phone</label>
+            </div>
+          </a>
+          <a
+            class="dropdown-item text-left"
+            href="#"
+          >
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input tableControl"
+                id="email"
+              >
+              <label
+                class="custom-control-label"
+                for="email"
+              >Email</label>
+            </div>
+          </a>
+          <a
+            class="dropdown-item text-left mb-3"
+            href="#"
+          >
+            <div class="custom-control custom-checkbox">
+              <input
+                type="checkbox"
+                class="custom-control-input tableControl"
+                id="status"
+                checked
+              >
+              <label
+                class="custom-control-label"
+                for="status"
+              >Status</label>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- table -->
+  <section class="container">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead>
+          <tr class="bg-light">
+            <th width="100">Order ID</th>
+            <th
+              class="text-center"
+              width="230"
+            >Customer</th>
+            <th width="200">Product List</th>
+            <th class="text-right">Total</th>
+            <th width="130">Add to Cart</th>
+            <th width="130">Check-out</th>
+            <th width="160">Address</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th width="160">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <p class="">01</p>
+            </td>
+            <td>
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="Customer01"
+                >
+                <label
+                  class="custom-control-label"
+                  for="Customer01"
+                >Ian Medina</label>
+              </div>
+            </td>
+            <td>
+              <div class="list-item border-bottom border-light mb-2">
+                <p>Vestibulum.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$1,400</p>
+                  <p>1</p>
+                </div>
+              </div>
+              <div class="list-item">
+                <p>Fusce vehicu.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$800</p>
+                  <p>1</p>
+                </div>
+              </div>
+            </td>
+            <td class="text-right">$2,200</td>
+            <td>2018/6/8 13:39</td>
+            <td>2018/6/8 20:23</td>
+            <td>386 Windler Drives Apt.358</td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn dropdown-toggle tableBtn btn-success"
+                  data-toggle="dropdown"
+                >Paid</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Paid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Unpaid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Shipping</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Done</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="">02</p>
+            </td>
+            <td>
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="Customer02"
+                >
+                <label
+                  class="custom-control-label"
+                  for="Customer02"
+                >Manuel Stephens</label>
+              </div>
+            </td>
+            <td>
+              <div class="list-item mb-2">
+                <p>Donec facili.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$1,400</p>
+                  <p>1</p>
+                </div>
+              </div>
+            </td>
+            <td class="text-right">$1,400</td>
+            <td>2018/6/8 13:39</td>
+            <td>2018/6/8 20:23</td>
+            <td>386 Windler Drives Apt.358</td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn dropdown-toggle tableBtn"
+                  data-toggle="dropdown"
+                >Paid</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Paid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Unpaid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Shipping</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Done</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="">02</p>
+            </td>
+            <td>
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="Customer03"
+                >
+                <label
+                  class="custom-control-label"
+                  for="Customer03"
+                >Manuel Stephens</label>
+              </div>
+            </td>
+            <td>
+              <div class="list-item mb-2 border-bottom border-light">
+                <p>Curabitur lo.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$1,400</p>
+                  <p>1</p>
+                </div>
+              </div>
+              <div class="list-item mb-2 border-bottom border-light">
+                <p>Donec facili.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$800</p>
+                  <p>1</p>
+                </div>
+              </div>
+              <div class="list-item mb-2">
+                <p>Nam porttito.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$800</p>
+                  <p>1</p>
+                </div>
+              </div>
+            </td>
+            <td class="text-right">$3,000</td>
+            <td>2018/6/8 13:39</td>
+            <td>2018/6/8 20:23</td>
+            <td>386 Windler Drives Apt.358</td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn dropdown-toggle tableBtn"
+                  data-toggle="dropdown"
+                >Shipping</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Paid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Unpaid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Shipping</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Done</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="">02</p>
+            </td>
+            <td>
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="Customer04"
+                >
+                <label
+                  class="custom-control-label"
+                  for="Customer04"
+                >Manuel Stephens</label>
+              </div>
+            </td>
+            <td>
+              <div class="list-item mb-2 border-bottom border-light">
+                <p>Lorem ipsum.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$1,400</p>
+                  <p>1</p>
+                </div>
+              </div>
+              <div class="list-item mb-2 border-bottom border-light">
+                <p>Nam porttito.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$1,400</p>
+                  <p>1</p>
+                </div>
+              </div>
+            </td>
+            <td class="text-right">$2,800</td>
+            <td>2018/6/8 13:39</td>
+            <td>2018/6/8 20:23</td>
+            <td>386 Windler Drives Apt.358</td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn dropdown-toggle tableBtn"
+                  data-toggle="dropdown"
+                >Shipping</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Paid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Unpaid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Shipping</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Done</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="">02</p>
+            </td>
+            <td>
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="Customer05"
+                >
+                <label
+                  class="custom-control-label"
+                  for="Customer05"
+                >Manuel Stephens</label>
+              </div>
+            </td>
+            <td>
+              <div class="list-item mb-2 border-bottom border-light">
+                <p>Lorem ipsum.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$1,400</p>
+                  <p>1</p>
+                </div>
+              </div>
+              <div class="list-item mb-2 border-bottom border-light">
+                <p>Nam porttito.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$1,400</p>
+                  <p>1</p>
+                </div>
+              </div>
+            </td>
+            <td class="text-right">$2,800</td>
+            <td>2018/6/8 13:39</td>
+            <td>2018/6/8 20:23</td>
+            <td>386 Windler Drives Apt.358</td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn dropdown-toggle tableBtn"
+                  data-toggle="dropdown"
+                >Done</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Paid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Unpaid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Shipping</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Done</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p class="">02</p>
+            </td>
+            <td>
+              <div class="custom-control custom-checkbox">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="Customer06"
+                >
+                <label
+                  class="custom-control-label"
+                  for="Customer06"
+                >Manuel Stephens</label>
+              </div>
+            </td>
+            <td>
+              <div class="list-item mb-2">
+                <p>Lorem ipsum.</p>
+                <div class="d-flex justify-content-between">
+                  <p class="text-gray">$1,400</p>
+                  <p>1</p>
+                </div>
+              </div>
+            </td>
+            <td class="text-right">$2,800</td>
+            <td>2018/6/8 13:39</td>
+            <td>2018/6/8 20:23</td>
+            <td>386 Windler Drives Apt.358</td>
+            <td></td>
+            <td></td>
+            <td>
+              <div class="btn-group">
+                <button
+                  type="button"
+                  class="btn dropdown-toggle tableBtn"
+                  data-toggle="dropdown"
+                >Unpaid</button>
+                <div class="dropdown-menu dropdown-menu-right">
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Paid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Unpaid</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Shipping</button>
+                  <button
+                    class="dropdown-item"
+                    type="button"
+                  >Done</button>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+  <!-- footer -->
+  <footer class="container">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-end">
+        <li class="page-item  disabled">
+          <a
+            class="page-link"
+            href="#"
+            aria-label="Previous"
+          >
+            <span aria-hidden="true">&laquo;</span>
+          </a></li>
+        <li class="page-item"><a
+            class="page-link"
+            href="#"
+          >1</a></li>
+        <li class="page-item"><a
+            class="page-link"
+            href="#"
+          >2</a></li>
+        <li class="page-item"><a
+            class="page-link"
+            href="#"
+          >3</a></li>
+        <li class="page-item"><a
+            class="page-link"
+            href="#"
+          >4</a></li>
+        <li class="page-item"><a
+            class="page-link"
+            href="#"
+          >5</a></li>
+        <li class="page-item"><a
+            class="page-link"
+            href="#"
+            aria-label="Next"
+          >
+            <span aria-hidden="true">&raquo;</span>
+          </a></li>
+      </ul>
+    </nav>
+  </footer>
+
+
+
+
+
+  <!-- jQuery -->
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+    integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+    crossorigin="anonymous"
+  ></script>
+  <!-- bootstrap -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"
+  ></script>
+  <!-- chart js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+  <script src="js/order.js"></script>
+  <!-- <script src="js/chartcontent.js"></script> -->
+</body>
+
+</html>

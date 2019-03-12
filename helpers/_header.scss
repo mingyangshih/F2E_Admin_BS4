@@ -1,0 +1,26 @@
+.header{
+  h3{
+    margin-bottom: 0;
+  }
+  .fa-hand-holding-usd,.fa-boxes,.fa-money-bill{
+    font-size: 25px;
+  }
+  margin-bottom: 18px;
+  .date-start,.date-end{
+    border:0px;
+    padding: 0px 0px;
+    height: 19px;
+    background-color: #F2F2F2;
+    color: #9B9B9B;
+    font-weight: bold;
+    width: 87px;
+  }
+  .fa-caret-right{
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .ui-datepicker td{
+    min-width: inherit;
+    height: inherit;
+  }
+}
